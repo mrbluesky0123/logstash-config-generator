@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:mariadb://198.13.47.188:19762/LGC
+    username: mrbluesky
+    password: kang12!@
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+#      naming:
+#        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+#        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+    show-sql: true
+    open-in-view: false
