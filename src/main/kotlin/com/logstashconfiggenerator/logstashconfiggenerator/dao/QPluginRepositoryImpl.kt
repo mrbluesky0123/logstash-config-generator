@@ -16,9 +16,9 @@ class QPluginRepositoryImpl(val jpaQueryFactory: JPAQueryFactory): QPluginReposi
 
     override fun selectSpecificPlugin(pluginId: Long): Plugin? {
         val plugin: QPlugin = QPlugin.plugin
-        val resultPlugin: Plugin = jpaQueryFactory.selectFrom(plugin)
+        val resultPlugin: Plugin? = jpaQueryFactory.selectFrom(plugin)
             .where(plugin.pluginId.eq(pluginId))
-            .fetch()
+            .fetchOne()
         return resultPlugin
     }
 
