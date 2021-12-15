@@ -41,6 +41,7 @@ dependencies {
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 //    annotationProcessor("com.querydsl:querydsl-apt:4.2.2:jpa")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("io.mockk:mockk:1.12.0")
 
     kapt(group = "com.querydsl", name = "querydsl-apt", classifier = "jpa")
 //    kapt("org.springframework.boot:spring-boot-configuration-processor")

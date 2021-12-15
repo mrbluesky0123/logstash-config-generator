@@ -24,5 +24,10 @@ data class Plugin(
     val pluginUseYn: String,
 
     @Column(name = "plugin_description", columnDefinition = "TEXT")
-    val pluginDescription: String
+    val pluginDescription: String,
+
+    @OneToMany
+    @JoinColumn(name="plugin_id")
+    val options: List<Option>
+
 ): BaseEntity()

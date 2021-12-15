@@ -6,9 +6,9 @@ import javax.persistence.*
 @Entity
 @Table(name = "options")
 data class Option(
-    @ManyToOne
-    @JoinColumn(name="plugin_id")
-    val plugin: Plugin,
+
+    @Column(name="plugin_id")
+    val pluginId: Long,
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +28,10 @@ data class Option(
     val optionUseYn: String,
 
     @Column(name = "option_description", columnDefinition = "TEXT")
-    val optionDescription: String
+    val optionDescription: String,
+
+    @Column(name = "option_value_example", columnDefinition = "TEXT")
+    val optionValueExample: String
+
 ): BaseEntity() {
 }
