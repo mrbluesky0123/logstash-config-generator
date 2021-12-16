@@ -31,7 +31,7 @@ data class Option(
     val optionDescription: String,
 
     @Column(name = "option_value_example", columnDefinition = "TEXT")
-    val optionValueExample: String
+    val optionValueExample: String?
 
 ): BaseEntity() {
 }

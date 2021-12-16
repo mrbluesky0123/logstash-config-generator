@@ -10,6 +10,6 @@ import javax.persistence.EntityManager
 
 @Repository
 interface QPluginRepository {
-    fun selectPlugins(pluginType: String): List<PluginBriefOutDto>
+    fun selectPlugins(pluginType: String): List<Plugin>
     fun selectSpecificPlugin(pluginId: Long): Plugin?
 }

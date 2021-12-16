@@ -4,6 +4,6 @@ data class OptionDto(
     val optionKey: String,
     val optionRequiredYn: String,
     val optionDescription: String,
-    val optionValueExample: String
+    val optionValueExample: String?
 ) {
 }

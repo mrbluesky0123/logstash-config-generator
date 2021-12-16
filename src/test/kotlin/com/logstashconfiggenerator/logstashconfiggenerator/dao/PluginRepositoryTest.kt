@@ -25,21 +25,21 @@ class PluginRepositoryTest(@Autowired val pluginRepository: PluginRepository) {
     @Test
     fun testSelectPlugins() {
         // Input
-        val inputPluginList: List<PluginBriefOutDto> = pluginRepository.selectPlugins("INPUT")
+        val inputPluginList: List<Plugin> = pluginRepository.selectPlugins("INPUT")
         log.info("#### pluginId = {}, pluginName = {}, pluginDescription = {}",
             inputPluginList[0].pluginId,
             inputPluginList[0].pluginName,
             inputPluginList[0].pluginDescription)
         assertEquals("jdbc", inputPluginList[0].pluginName)
         // Output
-        val outputPluginList: List<PluginBriefOutDto> = pluginRepository.selectPlugins("OUTPUT")
+        val outputPluginList: List<Plugin> = pluginRepository.selectPlugins("OUTPUT")
         log.info("#### pluginId = {}, pluginName = {}, pluginDescription = {}",
             outputPluginList[0].pluginId,
             outputPluginList[0].pluginName,
             outputPluginList[0].pluginDescription)
         assertEquals("elasticsearch", outputPluginList[0].pluginName)
         // Filter
-        val filterPluginList: List<PluginBriefOutDto> = pluginRepository.selectPlugins("FILTER")
+        val filterPluginList: List<Plugin> = pluginRepository.selectPlugins("FILTER")
         log.info("#### pluginId = {}, pluginName = {}, pluginDescription = {}",
             filterPluginList[0].pluginId,
             filterPluginList[0].pluginName,

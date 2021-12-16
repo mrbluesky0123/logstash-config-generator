@@ -26,7 +26,7 @@ data class Plugin(
     @Column(name = "plugin_description", columnDefinition = "TEXT")
     val pluginDescription: String,
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name="plugin_id")
     val options: List<Option>
 

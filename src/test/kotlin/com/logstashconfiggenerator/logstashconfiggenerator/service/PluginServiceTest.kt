@@ -27,11 +27,13 @@ class PluginServiceTest {
 
     @Test
     fun testGetPluginList() {
-        val expected = this.getFakeList()
-        given(pluginRepository.selectPlugins("INPUT")).willReturn(expected)
+        val given = this.getFakeList()
+        given(pluginRepository.selectPlugins("INPUT")).willReturn(given)
 
         val actual = pluginService.getPluginList("INPUT")
-        assertEquals(expected[0].pluginId, actual[0].pluginId)
+        assertEquals(1, actual[0].pluginId)
+        assertEquals("jdbc", actual[0].pluginName)
+        assertEquals("JDBC input plugin", actual[0].pluginDescription)
     }
 
     @Test
@@ -62,16 +64,33 @@ class PluginServiceTest {
         // when
         val actual = pluginService.getPlugin(1)
 
-        assertEquals(expected.pluginId, actual!!.pluginId)
-        assertEquals(expected.options[0].pluginId, actual!!.options[0].pluginId)
+        assertEquals("jdbc_connection_string", actual!!.options!![0].optionKey)
 
     }
 
-    private fun getFakeList(): List<PluginBriefOutDto> {
-        var fakeList: ArrayList<PluginBriefOutDto> = ArrayList()
-        val pluginBriefOutDto: PluginBriefOutDto =
-            PluginBriefOutDto(pluginId = 1, pluginName = "jdbc", pluginDescription = "JDBC input plugin")
-        fakeList.add(pluginBriefOutDto)
+    private fun getFakeList(): List<Plugin> {
+        var fakeList: ArrayList<Plugin> = ArrayList()
+        val expected = Plugin(
+            pluginId = 1,
+            pluginType = "INPUT",
+            pluginName = "jdbc",
+            pluginContents = "jdbc {\n\t\n}",
+            pluginUseYn = "Y",
+            pluginDescription = "JDBC input plugin",
+            options = listOf<Option>(
+                Option(
+                    pluginId = 1,
+                    optionId = 1,
+                    optionKey = "jdbc_connection_string",
+                    optionRequiredYn = "Y",
+                    optionInputType = "string",
+                    optionUseYn="Y",
+                    optionDescription="JDBC input plugin",
+                    optionValueExample= ""
+                )
+            )
+        )
+        fakeList.add(expected)
         return fakeList
     }
 

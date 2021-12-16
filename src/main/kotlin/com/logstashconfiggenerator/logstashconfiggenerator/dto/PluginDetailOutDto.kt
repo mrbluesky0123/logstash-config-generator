@@ -8,6 +8,6 @@ data class PluginDetailOutDto(
     val pluginName: String,
     val pluginContents: String,
     val pluginDescription: String,
-    val options: List<OptionDto>
+    val options: List<OptionDto>?
 ): BaseOutDto() {
 }
